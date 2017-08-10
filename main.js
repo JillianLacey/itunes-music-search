@@ -1,27 +1,38 @@
+
+const URL = "https://itunes.apple.com/search?term=";
 var input = document.querySelector("#input");
 var submit = document.querySelector("#submit");
 var resultsDisplay = document.querySelector(".mainContent");
+var audio = document.querySelector("audio");
 
 submit.addEventListener("click", function (e) {
-
-  let url = "https://itunes.apple.com/search?term=";
-  url += input.value;
-
   e.preventDefault();
-
-  axios.get(url)
+  let userInput = input.value;
+  axios.get(URL + userInput)
     .then(function (response) {
       let results = response.data.results;
-      resultsDisplay.innerHTML = " ";
+      populateHTML(results)
+    });
+});
 
-      for (var i = 0; i < results.length; i++) {
-        let data = results[i];
-        let artistName = results[i].artistName;
-        let albumArtwork = results[i].artworkUrl100;
-        let trackName = results[i].trackName;
+resultsDisplay.addEventListener("click", function (e) {
+
+  audio.setAttribute("src", e.target.value);
+  // audio.src = e.target.value;\
+})
 
 
-        resultsDisplay.innerHTML += `
+function populateHTML(res) {
+  resultsDisplay.innerHTML = " ";
+
+  for (var i = 0; i < res.length; i++) {
+    let data = res[i];
+    let artistName = res[i].artistName;
+    let albumArtwork = res[i].artworkUrl100;
+    let trackName = res[i].trackName;
+    let preview = res[i].previewUrl;
+
+    resultsDisplay.innerHTML += `
 
           <div class="container-results">
             <div class="image-parent">
@@ -31,12 +42,9 @@ submit.addEventListener("click", function (e) {
             <div class="content-parent">
               <p>${artistName}</p>
               <p>${trackName}</p>
+              <button type="button" value=${preview}>Play</button>
             </div>
           </div>
-          `
-      }
-
-    });
-});
-
-
+         `
+  }
+}
