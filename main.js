@@ -18,7 +18,7 @@ submit.addEventListener("click", function (e) {
 resultsDisplay.addEventListener("click", function (e) {
 
   audio.setAttribute("src", e.target.value);
-  // audio.src = e.target.value;\
+  // audio.src = e.target.value;
 })
 
 
@@ -34,17 +34,18 @@ function populateHTML(res) {
 
     resultsDisplay.innerHTML += `
 
-          <div class="container-results">
-            <div class="image-parent">
-              <img src="${albumArtwork}">
-            </div>
+  <div class="container-results">
+    <div class="image-parent">
+      <img src="${albumArtwork}">
+    </div>
 
-            <div class="content-parent">
-              <p>${artistName}</p>
-              <p>${trackName}</p>
-              <button type="button" value=${preview}>Play</button>
-            </div>
-          </div>
-         `
+    <div class="content-parent">
+      <p>${artistName}</p>
+      <p>${trackName}</p>
+     
+      <button type="button" value=${preview}>Play</button>
+    </div>
+  </div>
+  `
   }
 }
