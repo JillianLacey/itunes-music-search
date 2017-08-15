@@ -43,7 +43,9 @@ function populateHTML(res) {
       <p>${artistName}</p>
       <p>${trackName}</p>
      
-      <button type="button" value=${preview}>Play</button>
+      <button class="fa fa-play-circle-o fa-lg" type="button" value=${preview}> </button>
+    
+
     </div>
   </div>
   `

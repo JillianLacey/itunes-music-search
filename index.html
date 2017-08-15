@@ -9,22 +9,25 @@
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <h1>iTunes Music Search</h1>
-    </header>
-    <section class="search">
-      <form class="search-form">
-        <input id="input" type="text" autocomplete="off" placeholder="Search iTunes...">
-        <input id="submit" type="submit" value="Submit">
-      </form>
-      <audio class="music-player" controls="controls" autoplay></audio>
-    </section>
-    <!-- <section class="player">
-    </section> -->
+  <div class="wrapper">
+    <div class="container-1">
+      <header>
+        <h1>iTunes Music Search</h1>
+      </header>
+      <section class="search">
+        <form class="search-form">
+          <input id="input" type="text" autocomplete="off" placeholder="What are you looking for?">
+          <input id="submit" type="submit" value="Search">
+        </form>
+      </section>
+      <section class="player">
+        <audio class="music-player" controls="controls" autoplay></audio>
+      </section>
+    </div>
 
-
-    <section class="mainContent"></section>
+    <div class="container-2">
+      <section class="mainContent"></section>
+    </div>
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="main.js"></script>
